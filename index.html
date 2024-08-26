@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+ body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e0f7fa;
+}
+
+h1 {
+    text-align: center;
+    color: #006064;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 10px;
+    font-size: 28px;
+}
+
+
+#calculator {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#display {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+    text-align: right;
+    padding: 10px;
+    font-size: 26px;
+    border-radius: 8px;
+    border: 2px solid #006064;
+    color: #006064;
+    background-color: #e0f2f1;
+}
+
+button {
+    width: 22%;
+    height: 50px;
+    margin: 5px 1%;
+    font-size: 22px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #00796b;
+    color: #ffffff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #004d40;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #00332e;
+}
+
+#clear {
+    background-color: #d32f2f;
+}
+
+#clear:hover {
+    background-color: #b71c1c;
+}
+
+#equal {
+    background-color: #388e3c;
+}
+
+#equal:hover {
+    background-color: #2e7d32;
+}
+
+
+    </style>
+</head>
+<body>
+  <h1>calculaor</h1>  
+  <div id="calculator">
+
+    <input type="text" id="display" disabled>
+    <br>
+    <button onclick="appendtodisplay('1')">1</button>
+    <button onclick="appendtodisplay('2')">2</button>
+    <button onclick="appendtodisplay('3')">3</button>
+    <button onclick="appendtodisplay('+')">+</button>
+  <br>
+  <button onclick="appendtodisplay('4')">4</button>
+    <button onclick="appendtodisplay('5')">5</button>
+    <button onclick="appendtodisplay('6')">6</button>
+    <button onclick="appendtodisplay('-')">-</button>
+<br>
+<button onclick="appendtodisplay('9')">7</button>
+    <button onclick="appendtodisplay('8')">8</button>
+    <button onclick="appendtodisplay('9')">9</button>
+    <button onclick="appendtodisplay('*')">*</button>
+<br>
+<button onclick="appendtodisplay('0')">0</button>
+    <button  id="clear" onclick="cleardisplay()">C</button>
+    <button id="equal" onclick="calculateresult()">E</button>
+    <button onclick="appendtodisplay('/')">/</button>
+</div>
+<script>
+function appendtodisplay(value){
+    document.getElementById('display').value+=value;
+
+}
+function cleardisplay(){
+    document.getElementById('display').value='';
+}
+function calculateresult(){
+    var expression=document.getElementById('display').value;
+    var result;
+    try{
+        result=eval(expression);
+        document.getElementById('display').value=result;
+    }catch(error){
+        document.getElementById('display').value='error';
+    }
+}
+
+</script>
+</body>
+</html>
